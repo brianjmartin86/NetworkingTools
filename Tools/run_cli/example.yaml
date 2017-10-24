@@ -1,0 +1,21 @@
+---
+default: &DEFAULT
+    #global_commands: &config
+    #    - show version
+
+172.16.146.10:
+    <<: *DEFAULT
+    type: arista
+    commands:
+      - conf t
+      - interface loopback 123
+      - ip address 1.2.3.4/32
+      - end
+      - write memory
+
+172.16.146.11:
+    type: arista
+    commands:
+      - conf t
+      - no interface loopback 123
+      - end
